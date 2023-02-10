@@ -1,5 +1,8 @@
 name: 'Terraform Destroy'
 
+on:
+  delete
+  
 permissions:
   contents: read
 

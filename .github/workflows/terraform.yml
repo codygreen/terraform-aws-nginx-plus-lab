@@ -1,9 +1,7 @@
 name: 'Terraform Apply'
 
 on:
-  push:
-    branches:
-      - "main"
+  deployment
 
 permissions:
   contents: read
