@@ -34,7 +34,7 @@ jobs:
           TF_VAR_owner_email: ${{secrets.OWNER_EMAIL}}
           TF_VAR_key_name: ${{secrets.KEY_NAME}}
           TF_VAR_tailscale_auth_key: ${{secrets.TAILSCALE_AUTH_KEY}}
-          AWS_PROFILE: "default"
+          AWS_PROFILE: default
         run: terraform plan -input=false
 
       - name: Terraform Apply
