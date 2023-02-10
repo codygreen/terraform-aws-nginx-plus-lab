@@ -34,9 +34,13 @@ jobs:
           TF_VAR_owner_email: ${{secrets.OWNER_EMAIL}}
           TF_VAR_key_name: ${{secrets.KEY_NAME}}
           TF_VAR_tailscale_auth_key: ${{secrets.TAILSCALE_AUTH_KEY}}
-          AWS_PROFILE: default
         run: terraform plan -input=false
 
       - name: Terraform Apply
+        env:
+          TF_VAR_owner_name: ${{secrets.OWNER_NAME}}
+          TF_VAR_owner_email: ${{secrets.OWNER_EMAIL}}
+          TF_VAR_key_name: ${{secrets.KEY_NAME}}
+          TF_VAR_tailscale_auth_key: ${{secrets.TAILSCALE_AUTH_KEY}}
         if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
         run: terraform apply -auto-approve -input=false
