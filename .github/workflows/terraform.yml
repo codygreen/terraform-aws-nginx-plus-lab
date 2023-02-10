@@ -18,6 +18,16 @@ jobs:
       # Checkout the repository to the GitHub Actions runner
       - name: Checkout
         uses: actions/checkout@v3
+      
+      - name: Setup Terraform Backend
+        run: |
+          cat > backend.tf << EOF
+            terraform {
+              backend "local" {
+                path = "~/tfstate/${{vars.GITHUB_REPOSITORY}}/terraform.tfstate"
+              }
+            }
+          EOF
 
       # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
       - name: Terraform Init
