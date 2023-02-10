@@ -24,7 +24,7 @@ jobs:
           cat > backend.tf << EOF
           terraform {
             backend "local" {
-              path = "$GITHUB_WORKSPACE/../../../../tfstate/$GITHUB_ACTION/terraform.tfstate"
+              path = "$GITHUB_WORKSPACE/../../../../tfstate/$GITHUB_REPOSITORY/terraform.tfstate"
             }
           }
           EOF
