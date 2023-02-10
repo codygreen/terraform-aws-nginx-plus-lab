@@ -1,6 +1,5 @@
 module "vpc-tailscale" {
   source             = "github.com/codygreen/terraform-aws-vpc-tailscale"
-  version            = "0.0.2"
   aws_access_key     = var.aws_access_key
   aws_secret_key     = var.aws_secret_key
   instance_type      = var.instance_type
