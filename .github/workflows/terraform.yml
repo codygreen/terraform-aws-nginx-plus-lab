@@ -24,7 +24,7 @@ jobs:
       #     cat > backend.tf << EOF
       #       terraform {
       #         backend "local" {
-      #           path = "~/tfstate/${{env.GITHUB_REPOSITORY_ID}}/terraform.tfstate"
+      #           path = "~/tfstate/${GITHUB_REPOSITORY_ID}/terraform.tfstate"
       #         }
       #       }
       #     EOF
