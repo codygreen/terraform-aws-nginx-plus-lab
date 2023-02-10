@@ -19,19 +19,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       
-      - name: Setup Terraform Backend
-        run: |
-          cat > backend.tf << EOF
-            terraform {
-              backend "local" {
-                path = "~/tfstate/${{env.GITHUB_REPOSITORY_ID}}/terraform.tfstate"
-              }
-            }
-          EOF
+      # - name: Setup Terraform Backend
+      #   run: |
+      #     cat > backend.tf << EOF
+      #       terraform {
+      #         backend "local" {
+      #           path = "~/tfstate/${{env.GITHUB_REPOSITORY_ID}}/terraform.tfstate"
+      #         }
+      #       }
+      #     EOF
 
       # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
       - name: Terraform Init
-        run: terraform init
+        run: |
+          terraform init -backend-config="path=~/tfstate/${{env.GITHUB_REPOSITORY_ID}}/terraform.tfstate"
 
       # Checks that all Terraform configuration files adhere to a canonical format
       - name: Terraform Format
