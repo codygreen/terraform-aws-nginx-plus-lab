@@ -22,11 +22,11 @@ jobs:
       - name: Setup Terraform Backend
         run: |
           cat > backend.tf << EOF
-            terraform {
-              backend "local" {
-                path = "~/tfstate/${{github.event.repository.name}}/terraform.tfstate"
-              }
+          terraform {
+            backend "local" {
+              path = "~/tfstate/${{github.event.repository.name}}/terraform.tfstate"
             }
+          }
           EOF
 
       # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
