@@ -1,8 +1,8 @@
 name: 'Terraform Destroy'
 
 on:
-  delete
-  
+  workflow_dispatch
+
 permissions:
   contents: read
 
